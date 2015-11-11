@@ -44,7 +44,6 @@ body.landing {
   html { font-size: 120%; }
 }
 
-
 .clearfix:before,
 .clearfix:after {
    content: " ";
@@ -53,3 +52,4 @@ body.landing {
 
 .clearfix:after {
    clear: both;
+}
