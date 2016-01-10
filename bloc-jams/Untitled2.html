@@ -1,0 +1,77 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd" />
+
+<html>
+
+<head>
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta http-equiv="Window-Target" content="Content" />
+	<meta name="Client" content="DST010" />
+	<script language="JavaScript1.2" type="text/javascript">
+		<!--
+		function pausecomp(Amount){
+			d = new Date()
+			while (1){
+				mill=new Date()
+				diff = mill-d
+				if( diff > Amount ) {
+					break;
+				}
+			}
+		}
+
+		function getCookie(name)
+		{
+		    var dc = document.cookie;
+		    var prefix = name + "=";
+		    var begin = dc.indexOf("; " + prefix);
+		    if (begin == -1)
+		    {
+		        begin = dc.indexOf(prefix);
+		        if (begin != 0) return false;
+		    }
+		    else
+		    {
+		        begin += 2;
+		    }
+		    var end = document.cookie.indexOf(";", begin);
+		    if (end == -1)
+		    {
+		        end = dc.length;
+		    }
+		    return unescape(dc.substring(begin + prefix.length, end));
+		}
+
+
+		function logCheck(){
+			if (getCookie("DasLoggedOn") == "false"){
+				document.getElementById("DasMainFrame").src = "process.asp?target=das_logon";
+			}
+			if (!getCookie("DasLoggedOn")){
+				document.getElementById("DasMainFrame").src = "process.asp?target=das_logon";
+			}
+		}
+		function LogOut() {
+			document.cookie="DASLoggedOn=false";
+			document.getElementById("DasMainFrame").src = "process.asp?target=das_autologoff";
+			pausecomp(1250);
+		}
+
+
+		if(top != self) {
+			top.location = self.location
+		}
+		// -->
+	</script>
+</head>
+
+<FRAMESET rows="100%" border="0" frameborder="no" framespacing="0"  onload="logCheck();" onunload="LogOut();" >
+	<FRAME id="DasMainFrame" name="DasMainFrame" src="processx.asp" frameborder="0" marginWidth="0" scrolling="auto" />
+	<NOFRAMES>
+		<body>
+	    </body>
+	</NOFRAMES>
+</FRAMESET>
+
+</html>

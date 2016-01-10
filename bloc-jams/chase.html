@@ -1,0 +1,420 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title dasresid="340">Dealer Access System Log On</title>
+		<meta Name="Template" content="TPT_LOGON"/>
+		<meta http-equiv="Window-Target" content="Content"/>
+		<link rel="STYLESHEET" type="text/css" href="css/dasstandard.css"/>
+		<div xmlns="" id="div_css">
+			<link rel="STYLESHEET" type="text/css" href="css/DST010.css"/>
+		</div>
+		<script language="JavaScript" src="css/savechanges.js" type="text/javascript">
+		</script>
+	</head>
+	<body onbeforeunload="bodyOnBeforeUnload();" class="stdPage" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" marginheight="0" marginwidth="0" onLoad="document.das_logon.txtDealerNum.focus();">
+		<table height="100%" width="100%">
+			<tbody>
+				<tr>
+					<td height="50">
+						<!-- Start Header -->
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td>
+										<div xmlns="" id="div_clientheader">
+											<table class="stdHeader" width="100%" border="1">
+												<tbody>
+													<tr>
+														<td class="stdHeaderTD" colspan="3"><img src="images/1ptrans.gif" width="1" height="1"/></td>
+													</tr>
+													<tr>
+														<td width="50%">
+															<div align="center">
+																<a id="LogoURL" href="www.datascantech.com" target="_blank">
+																	<img name="logo" class="logo" src="images/fnblogo.gif" border="0"/></a>
+															</div>
+														</td>
+														<td class="stdHeaderTD"><img src="images/1ptrans.gif" width="1" height="100%"/></td>
+														<td height="43">
+															<div align="center">
+																<a href="processx.asp">
+																	<img src="images/daslogo.gif" width="460" height="46" border="0"/></a>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td class="stdHeaderTD" colspan="3"><img src="images/1ptrans.gif" width="1" height="1"/></td>
+													</tr>
+												</tbody>
+											</table>
+										</div></td>
+								</tr>
+								<tr>
+									<td>
+										<div xmlns="" id="div_logonnavbar">
+											<table class="stdHeader" width="100%">
+												<tbody>
+													<tr>
+														<td class="stdHeader" width="50%"><img src="images/1ptrans.gif" width="1" height="1"/></td>
+														<td class="stdHeaderTD" width="16.7%">
+															<div align="center">
+																<a class="stdHeaderMenuItem" href="process.asp?target=das_about_logged_off">
+																	<span class="stdHeaderMenuItem" dasresid="242">About DAS</span></a>
+															</div>
+														</td>
+														<td class="stdHeaderTD" width="16.7%">
+															<div align="center">
+																<a class="stdHeaderMenuItem" href="process.asp?target=das_logon">
+																	<span class="stdHeaderMenuItem" dasresid="15">System Log On</span></a>
+															</div>
+														</td>
+														<td class="stdHeaderTD" width="16.7%">
+															<div id="dashelp" align="center">
+																<a class="stdHeaderMenuItem" href="process.asp?target=streamreport&amp;file=dashelp_ENGLISH.htm" target="_blank">
+																	<span class="stdHeaderMenuItem" dasresid="241">Help</span></a>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- End Header --></td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td valign="top">
+										<table width="100%" border="0">
+											<tbody>
+												<tr>
+													<td>
+														<!-- Start Events -->
+														<div xmlns="" id="div_events">
+															<div id="div_message" align="left">
+															</div>
+															<div id="div_error" align="left">
+																<table class="stdErrorForm" border="1" width="100%" cellpadding="0" cellspacing="0">
+																	<caption class="stdErrorCaption" dasresid="338"></caption>
+																	<div id="div_error_template">
+																		<tr>
+																			<td width="5%" align="center"><img src="images/red_bullet.gif" width="7" height="7" border="0" alt=""/></td>
+																			<td><span id="Description" class="stdErrorText">Invalid User ID / password.  Please try again.</span></td>
+																		</tr>
+																	</div>
+																</table>
+															</div>
+														</div>
+														<!-- End Events -->
+														<!-- Start Workspace -->
+														<br/><br></br>
+														<br/><br></br>
+														<div xmlns="" id="das_logon" align="center">
+															<xsl:comment xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+																<script>
+			// <![CDATA[
+
+				if (!parent.frames[0]){
+					window.navigate('./');
+				}
+			function optDealerType_onchange(opt) {
+				var strOptPrompt = '';
+				strOptPrompt = opt.options(opt.selectedIndex).dealernum_prompt;
+				window.document.all['DealerNumberText'].innerHTML = strOptPrompt;
+			}
+			function SetCookieFormElements() {
+
+				destroySession();
+				document.location=self.location;
+
+				if(window.document.das_logon.txtRememberMe) {
+					if( window.document.das_logon.txtRememberMe.checked == true)
+					{
+						document.forms['das_logon'].writeCookies.value = 'yes';
+					}else{
+						document.forms['das_logon'].writeCookies.value = 'no';
+					}
+				}
+				return true;
+			}
+
+			void function setCookie(strName, strValue, dtExpires) {
+
+
+	var strCookie;
+
+
+	strCookie = strName + '=' + escape(strValue);
+
+	if(typeof dtExpires != 'undefined') {
+		try {
+			strCookie += '; expires=' + dtExpires.toGMTString();
+		}
+		catch(e) { }
+	}
+
+	strCookie += '; path=/';
+
+	document.cookie = strCookie;
+}
+
+function getCookie(strName) {
+
+
+	var reName = new RegExp('.*' + strName + '=','gi');
+	var reSemiColon = new RegExp(';.*','gi');
+	var strDocumentCookie = document.cookie;
+
+	if(reName.test(strDocumentCookie)) {
+		strDocumentCookie = strDocumentCookie.replace(reName,'');
+
+		return strDocumentCookie.replace(reSemiColon,'');
+	} else
+		return '';
+}
+
+void function deleteCookie(strName) {
+
+	var strDummy = 'xyzzy';
+	var dtExpires = new Date();
+
+	dtExpires.setFullYear(1970,1,1);
+
+	setCookie(strName, strDummy, dtExpires);
+}
+
+function dotNet() {
+
+	var reSessionID = new RegExp('\.aspx','gi');
+
+	return reSessionID.test(document.URL.toString());
+}
+
+void function destroySession() {
+
+	var reSessionID = new RegExp('sessionid[^=]*=[^;,\b]*','gi')
+	var arrCookies = document.cookie.toString().split(';');
+	var strWork;
+
+    reSessionID.compile('aspsessionid[^=]*=[^;,\b]*','gi');
+
+	for(var i=0;i < arrCookies.length;i++)
+		if(reSessionID.test(arrCookies[i].toString())) {
+			reSessionID.compile('=[^;,\b]*','gi');
+
+			strWork = arrCookies[i].toString().replace(reSessionID,'');
+
+			reSessionID.compile('aspsessionid[^=]*','gi');
+
+			if(reSessionID.test(strWork)) {
+				reSessionID.compile('^ ','gi');
+				setCookie(strWork.replace(reSessionID,'', 'dummy'));
+
+				break;
+			}
+		}
+}
+
+function binarySearch(objArray,strItem) {
+
+	var x;
+	var l = 0;
+	var r;
+
+	try {
+		r = objArray.length;
+
+		do {
+			x = parseInt((l + r) / 2);
+
+			if(strItem.toLowerCase() == objArray[x].toString().toLowerCase())
+				break;
+			else
+				if(strItem.toLowerCase() < objArray[x].toString().toLowerCase())
+					r = x - 1;
+				else
+					l = x + 1;
+		} while(!(l > r));
+
+		if(strItem.toLowerCase() == objArray[x].toString().toLowerCase())
+			return x;
+		else
+			return -1;
+	}
+	catch(e) {
+		return -1;
+	}
+}
+
+			// ]]></script>
+															</xsl:comment>
+															<form method="post" action="process.asp" name="das_logon" id="das_logon" chkfrmchanges="false" onsubmit="SetCookieFormElements();" xonError="null" autocomplete="off">
+																<input type="hidden" name="writeCookies" value="no"/>
+																<input type="hidden" name="CookieExpiration" value=""/>
+																<input type="hidden" name="RememberMe" value=""/>
+																<input type="hidden" name="DealerNum" value=""/>
+																<input type="hidden" name="DealerType" value=""/>
+																<input type="hidden" name="UserCd" value=""/>
+																<input type="hidden" name="target" value="das_logon"/>
+																<input type="hidden" name="sessionid" value=""/>
+																<input type="hidden" name="setFocusTo" value="document.das_logon.txtDealerNum.focus();"/>
+																<table border="0" width="400" cellpadding="0" cellspacing="0" style="margin:0;">
+																	<tbody>
+																		<tr valign="top">
+																			<td align="center" width="33%">
+																				<table border="0" width="100%" cellspacing="0" cellpadding="3">
+																					<tbody>
+																						<tr class="stdFormDarkBg">
+																							<td align="center">
+																								<span id="PageTitle" dasresid="15" class="stdPageTitle">System Log On</span>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																			</td>
+																			<td width="67%">
+																				<img src="images/1ptrans.gif" width="1" height="1" border="0" alt=""/>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<table border="0" cellspacing="0" width="400">
+																	<tbody>
+																		<tr>
+																			<td class="stdFormDarkBg">
+																				<table border="0" cellspacing="0" cellpadding="0">
+																					<tbody>
+																						<tr>
+																							<td height="5"></td>
+																						</tr>
+																					</tbody>
+																				</table>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+																<table border="0" width="400" cellpadding="0" cellspacing="0" class="stdFormLightBg" style="border:solid 1px #cccccc;">
+																	<tbody>
+																		<tr>
+																			<td>
+																				<table width="100%" border="0" cellpadding="5" cellspacing="0">
+																					<tbody>
+																						<tr>
+																							<td colspan="2">
+																								<img src="images/1ptrans.gif" width="1" height="1" border="0" alt=""/>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<div align="right">
+																									<span class="stdFormCaption" dasresid="536">Entity Type</span>
+																								</div>
+																							</td>
+																							<td>
+																								<div id="DivOptDealerType">
+																									<select id="optDealerType" name="optDealerType" size="1" maxlength="10" onchange="return optDealerType_onchange(this)">
+																										<option value="DEALER" dealernum_prompt="Dealer Number">Dealer</option>
+																										<option value="MEGADEALER" dealernum_prompt="Megadealer Number" selected="selected">Megadealer</option>
+																									</select>
+																								</div>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<div align="right">
+																									<span id="DealerNumberText" class="stdFormCaption" dasresid="532">Dealer Number</span>
+																								</div>
+																							</td>
+																							<td>
+																								<div>
+																									<input type="text" name="txtDealerNum" size="12" maxlength="10" value="" autocomplete="off"/>
+																								</div>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<div align="right">
+																									<span class="stdFormCaption" dasresid="17">User ID</span>
+																								</div>
+																							</td>
+																							<td>
+																								<div>
+																									<input type="text" name="txtUserCd" size="12" maxlength="8" value="" autocomplete="off"/>
+																								</div>
+																							</td>
+																						</tr>
+																						<tr>
+																							<td>
+																								<div align="right">
+																									<span class="stdFormCaption" dasresid="18">Password</span>
+																								</div>
+																							</td>
+																							<td>
+																								<div>
+																									<input type="password" name="txtPassword" size="12" maxlength="10" AUTOCOMPLETE="OFF"/>
+																								</div>
+																							</td>
+																						</tr>
+																					</tbody>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td colspan="2">
+																				<div align="center">
+																					<input dasresid="27" type="image" name="btnSubmit" src="images/proceed.gif" border="0" alt="Click to proceed." onclick="SetCookieFormElements();"/>
+																				</div>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</form>
+														</div>
+														<!-- End Workspace -->
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td height="50">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td align="center">
+										<div xmlns="" id="div_clientfooter">
+											<table class="stdHeader" width="100%">
+												<tbody>
+												</tbody>
+											</table></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<script language="JavaScript" src="css/formvalidations.js" type="text/javascript"></script>
+		<script language="JavaScript1.2">
+					if (!parent.frames[0]){
+						window.navigate('./');
+					}
+</script>
+	</body>
+	<HEAD>
+		<meta http-equiv="Pragma" content="no-cache"/>
+		<meta http-equiv="Cache-Control" content="no-store"/>
+		<meta http-equiv="Expires" content="-1"/>
+	</HEAD>
+</html>
