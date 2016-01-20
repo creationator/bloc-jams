@@ -20,7 +20,7 @@ var revealPoint = function(point) {
 };
 
 var animatePoints = function(points) {
-forEach(points, revealPoint);
+  forEach(points, revealPoint);
 };
 
 window.onload = function() {
@@ -28,7 +28,7 @@ window.onload = function() {
     animatePoints(pointsArray);
   }
 
-  window.addEventListener('scroll', function(event) {
+  window.addEventListener("scroll", function(event) {
     if (pointsArray[0].getBoundingClientRect().top <= 500) {
         animatePoints(pointsArray);
     }

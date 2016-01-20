@@ -85,7 +85,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
    window.onload = function() {
        setCurrentAlbum(albumPicasso);
-       
+
        var albums = [albumPicasso, albumMarconi, albumCC3];
        var index = 1;
        albumImage.addEventListener('click', function(event) {
