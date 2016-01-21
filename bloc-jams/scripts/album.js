@@ -29,6 +29,27 @@ var albumPicasso = {
      ]
  };
 
+ // Another Example Album
+ var albumCC3 = {
+     name: 'Church Clothes 3',
+     artist: 'Lecrae',
+     label: 'Reach',
+     year: '2016',
+     albumArtUrl: 'assets/images/album_covers/22.png',
+     songs: [
+         { name: 'Freedom', length: '2:52' },
+         { name: 'Gangland', length: '3:48' },
+         { name: 'Deja Vu', length: '4:10'},
+         { name: 'Sidelines', length: '3:36' },
+         { name: 'Cruising', length: '3:21'},
+         { name: 'It it What It Is', length: '4:06' },
+         { name: 'Cant Do You', length: '3:28' },
+         { name: 'Forever', length: '3:04'},
+         { name: 'Misconceptions 3', length: '4:29' },
+         { name: 'I Wouldnt Know', length: '3:30'}
+     ]
+ };
+
 var createSongRow = function(songNumber, songName, songLength) {
   var template =
     '<tr class=album-view-song-item>'
@@ -41,19 +62,13 @@ var createSongRow = function(songNumber, songName, songLength) {
     return template;
   };
 
-
-
-
+  var albumTitle = document.getElementsByClassName('album-view-title')[0];
+  var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+  var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+  var albumImage = document.getElementsByClassName('album-cover-art')[0];
+  var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
 
   var setCurrentAlbum = function(album) {
-       // #1
-       var albumTitle = document.getElementsByClassName('album-view-title')[0];
-       var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-       var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-       var albumImage = document.getElementsByClassName('album-cover-art')[0];
-       var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
-
-       // #2
        albumTitle.firstChild.nodeValue = album.name;
        albumArtist.firstChild.nodeValue = album.artist;
        albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
@@ -70,4 +85,14 @@ var createSongRow = function(songNumber, songName, songLength) {
 
    window.onload = function() {
        setCurrentAlbum(albumPicasso);
+
+       var albums = [albumPicasso, albumMarconi, albumCC3];
+       var index = 1;
+       albumImage.addEventListener('click', function(event) {
+         setCurrentAlbum(albums[index]);
+         index++;
+         if (index == albums.length) {
+           index = 0;
+         }
+       });
    };
