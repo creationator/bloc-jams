@@ -27,7 +27,7 @@ window.onload = function() {
     animatePoints(pointsArray);
   }
 
-  window.addEventListener('scroll', function(event) {
+  window.addEventListener("scroll", function(event) {
     if (pointsArray[0].getBoundingClientRect().top <= 500) {
         animatePoints(pointsArray);
     }
