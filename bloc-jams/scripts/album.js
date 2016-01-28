@@ -30,6 +30,7 @@ var albumPicasso = {
  };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var createSongRow = function(songNumber, songName, songLength) {
   var template =
     '<tr class=album-view-song-item>'
@@ -39,6 +40,8 @@ var createSongRow = function(songNumber, songName, songLength) {
     + '</tr>'
     ;
 =======
+=======
+>>>>>>> checkpoint-31-playpause
  var createSongRow = function(songNumber, songName, songLength) {
    var template =
      '<tr class=album-view-song-item>'
@@ -47,11 +50,14 @@ var createSongRow = function(songNumber, songName, songLength) {
      + ' <td class="song-item-duration">' + songLength + '</td>'
      + '</tr>'
      ;
+<<<<<<< HEAD
 
      return template;
    };
 >>>>>>> checkpoint-30-collection
 
+=======
+>>>>>>> checkpoint-31-playpause
 
     var $row = $(template);
 
@@ -75,12 +81,12 @@ var createSongRow = function(songNumber, songName, songLength) {
     };
 
     var onHover = function(event) {
-    var songNumberCell = $(this).find('.song-item-number');
-    var songNumber = songNumberCell.attr('data-song-number');
+        var songNumberCell = $(this).find('.song-item-number');
+        var songNumber = songNumberCell.attr('data-song-number');
 
-    if (songNumber !== currentlyPlayingSong) {
-        songNumberCell.html(playButtonTemplate);
-      }
+        if (songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(playButtonTemplate);
+        }
     };
 
     var offHover = function(event) {
@@ -92,12 +98,18 @@ var createSongRow = function(songNumber, songName, songLength) {
         }
     };
 
+
     $row.find('.song-item-number').click(clickHandler);
     $row.hover(onHover, offHover);
     return $row;
 
-  };
+   };
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> checkpoint-31-playpause
    var setCurrentAlbum = function(album) {
         // #1
      var $albumTitle = $('.album-view-title');
@@ -120,6 +132,7 @@ var createSongRow = function(songNumber, songName, songLength) {
           var $newRow = createSongRow(i + 1, album.songs[i].name, album.songs[i].length);
           $albumSongList.append($newRow);
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
    };
 
@@ -187,6 +200,17 @@ var createSongRow = function(songNumber, songName, songLength) {
     window.onload = function() {
         setCurrentAlbum(albumPicasso);
         songListContainer.addEventListener('mouseover', function(event){
+=======
+    };
+
+
+    // Album button templates
+    var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
+    var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
+
+    //Store state of playing songs
+    var currentlyPlayingSong = null;
+>>>>>>> checkpoint-31-playpause
 
          // Only target individual song rows during delegation
          if (event.target.parentElement.className === 'album-view-song-item') {
@@ -204,6 +228,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 <<<<<<< HEAD
     $(document).ready(function() {
+<<<<<<< HEAD
        setCurrentAlbum(albumPicasso);
    });
 =======
@@ -226,3 +251,8 @@ var createSongRow = function(songNumber, songName, songLength) {
         }
     };
 >>>>>>> checkpoint-30-collection
+=======
+        setCurrentAlbum(albumPicasso);
+
+    });
+>>>>>>> checkpoint-31-playpause
