@@ -90,8 +90,17 @@ var createSongRow = function(songNumber, songName, songLength) {
  };
 
  var trackIndex = function(album, song) {
-     return album.songs.indexOf(song);
+   return album.songs.indexOf(song);
  };
+
+ var updatePlayerBarSong = function() {
+
+     $('.currently-playing .song-name').text(currentSongFromAlbum.name);
+     $('.currently-playing .artist-name').text(currentAlbum.artist);
+     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.name + " - " + currentAlbum.artist);
+     $('.main-controls .play-pause').html(playerBarPauseButton);
+ };
+
 
  var nextSong = function() {
 
@@ -160,16 +169,6 @@ var createSongRow = function(songNumber, songName, songLength) {
      $lastSongNumberCell.html(lastSongNumber);
 
  };
-
-
- var updatePlayerBarSong = function() {
-
-     $('.currently-playing .song-name').text(currentSongFromAlbum.name);
-     $('.currently-playing .artist-name').text(currentAlbum.artist);
-     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.name + " - " + currentAlbum.artist);
-     $('.main-controls .play-pause').html(playerBarPauseButton);
- };
-
 
 // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
