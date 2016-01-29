@@ -1,3 +1,4 @@
+// Example Album
 var albumPicasso = {
     name: 'The Colors',
     artist: 'Pablo Picasso',
@@ -8,11 +9,12 @@ var albumPicasso = {
         { name: 'Blue', length: '4:26' },
         { name: 'Green', length: '3:14' },
         { name: 'Red', length: '5:01' },
-        { name: 'Pink', length: '3:21' },
-        { name: 'Magenta', length: '2:15' }
+        { name: 'Pink', length: '3:21'},
+        { name: 'Magenta', length: '2:15'}
     ]
 };
 
+// Another Example Album
 var albumMarconi = {
     name: 'The Telephone',
     artist: 'Guglielmo Marconi',
@@ -22,8 +24,8 @@ var albumMarconi = {
     songs: [
         { name: 'Hello, Operator?', length: '1:01' },
         { name: 'Ring, ring, ring', length: '5:01' },
-        { name: 'Fits in your pocket', length: '3:21' },
+        { name: 'Fits in your pocket', length: '3:21'},
         { name: 'Can you hear me now?', length: '3:14' },
-        { name: 'Wrong phone number', length: '2:15' }
+        { name: 'Wrong phone number', length: '2:15'}
     ]
 };
